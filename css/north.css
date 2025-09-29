@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Rubik, Arial, sans-serif;
+    font-family:  Arial, sans-serif;
     background-color: #ffffff;
     line-height: 1.6;
     direction: rtl;
@@ -44,7 +44,7 @@ img {
 
 .logo-text {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     color: #f0decb;
 }
@@ -60,7 +60,7 @@ img {
 
 .nav-item {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     color: #ffffff;
     text-decoration: none;
@@ -96,7 +96,7 @@ img {
 /* Breadcrumbs */
 .breadcrumbs {
     font-size: 14px;
-    font-family: 'Rubik', Arial, sans-serif;
+    font-family:  Arial, sans-serif;
     color: #364037;
     text-align: center;
     margin-top: auto; /* Push breadcrumbs to the bottom */
@@ -187,7 +187,7 @@ img {
 
 .hero-text {
     font-size: 24px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 29px;
     text-align: center;
@@ -223,7 +223,7 @@ img {
     border-radius: 22px;
     padding: 6px 34px;
     font-size: 24px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     line-height: 29px;
     text-align: center;
@@ -241,7 +241,7 @@ img {
 
 .section-title {
     font-size: 28px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 34px;
     text-align: center;
@@ -283,7 +283,7 @@ img {
 
 .destination-title {
     font-size: 18px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 22px;
     text-align: right;
@@ -292,7 +292,7 @@ img {
 
 .destination-description {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 400;
     line-height: 36px;
     text-align: right;
@@ -301,7 +301,7 @@ img {
 
 .destination-details {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     line-height: 36px;
     text-align: right;
@@ -317,7 +317,7 @@ img {
 
 /* Accommodation section */
 .accommodation-section {
-    font-family: Rubik;
+    font-family: Ariel;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -353,12 +353,12 @@ img {
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    font-family: Rubik;
+    font-family: Ariel;
 }
 
 .accommodation-type {
     font-size: 18px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 36px;
     text-align: right;
@@ -367,7 +367,7 @@ img {
 
 .accommodation-description {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 400;
     line-height: 36px;
     text-align: right;
@@ -390,7 +390,7 @@ img {
     gap: 32px;
     width: 100%;
     max-width: 1420px;
-    font-family: Rubik;
+    font-family: Ariel;
 }
 
 .food-grid {
@@ -413,7 +413,7 @@ img {
     flex-direction: column;
     gap: 32px;
     width: 100%;
-    font-family: Rubik;
+    font-family: Ariel;
 }
 
 .food-place {
@@ -424,7 +424,7 @@ img {
 
 .food-title {
     font-size: 18px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 22px;
     text-align: right;
@@ -433,7 +433,7 @@ img {
 
 .food-description {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 400;
     line-height: 36px;
     text-align: right;
@@ -449,7 +449,7 @@ img {
 }
 
 .footer-content {
-    font-family: Rubik;
+    font-family: Ariel;
     display: flex;
     flex-direction: column; /* Stack content vertically */
     align-items: center;
@@ -467,7 +467,7 @@ img {
     color: #ffffff;
     text-decoration: none;
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -490,7 +490,7 @@ img {
 
 .footer-logo-text {
     font-size: 20px; /* Adjust text size */
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     color: #f0decb;
 }

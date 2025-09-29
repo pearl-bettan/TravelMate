@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: Rubik, Arial, sans-serif;
+    font-family:  Arial, sans-serif;
     background-color: #ffffff;
     line-height: 1.6;
     direction: rtl;
@@ -77,7 +77,7 @@ img {
 /* Breadcrumbs */
 .breadcrumbs {
     font-size: 14px;
-    font-family: 'Rubik', Arial, sans-serif;
+    font-family:  Arial, sans-serif;
     color: #364037;
     text-align: center; /* Center breadcrumbs */
 }
@@ -136,7 +136,7 @@ img {
 
 .logo-text {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     color: #f0decb;
 }
@@ -154,14 +154,14 @@ img {
 
 .nav-item {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     color: #ffffff;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    font-family: Rubik;
+    font-family: Ariel;
 }
 
 .nav-item:hover {
@@ -229,7 +229,7 @@ img {
 
 .hero-title {
     font-size: 52px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     line-height: 1.2;
     color: #ffffff;
@@ -243,7 +243,7 @@ img {
 
 .hero-subtitle {
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 38px;
@@ -259,7 +259,7 @@ img {
     flex-shrink: 0;
     color: #F0DECB;
     text-align: center;
-    font-family: Rubik;
+    font-family: Ariel;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -270,7 +270,7 @@ img {
     background-color: #7d5b46;
     color: #ffffff;
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     padding: 12px 24px;
     border: none;
@@ -311,7 +311,6 @@ img {
 }
 
 .feature-text-content {
-    display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: flex-end;
@@ -328,7 +327,7 @@ img {
 
 .feature-description {
     font-size: 18px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 400;
     color: #ffffff;
     line-height: 1.5;
@@ -355,7 +354,7 @@ img {
 
 .blog-title {
     font-size: 24px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     color: #000000;
     text-align: center;
@@ -396,7 +395,7 @@ img {
 
 .blog-card-title {
     font-size: 18px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     color: #000000;
     text-align: right;
@@ -468,7 +467,7 @@ img {
 
 .stat-label {
     font-size: 14px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     color: #ffffff;
 }
@@ -496,7 +495,7 @@ img {
 
 .newsletter-title {
     font-size: 34px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 900;
     line-height: 41px;
     text-align: center;
@@ -520,14 +519,14 @@ img {
     border-radius: 22px;
     background-color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Rubik;
+    font-family: Ariel;
     font-size: 16px;
     text-align: right;
 }
 
 .newsletter-button {
     font-size: 20px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     line-height: 24px;
     text-align: center;
@@ -553,7 +552,7 @@ img {
     flex-shrink: 0;
     color: #F0DECB;
     text-align: center;
-    font-family: Rubik;
+    font-family: Ariel;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -585,7 +584,7 @@ img {
     color: #ffffff;
     text-decoration: none;
     font-size: 16px;
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -608,7 +607,7 @@ img {
 
 .footer-logo-text {
     font-size: 20px; /* Adjust text size */
-    font-family: Rubik;
+    font-family: Ariel;
     font-weight: 700;
     color: #f0decb;
 }
