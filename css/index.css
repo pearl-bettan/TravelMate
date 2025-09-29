@@ -224,7 +224,6 @@ img {
     align-items: center;
     text-align: center;
     padding: 40px 20px;
-    margin-top: -60px;
 }
 
 .hero-title {
@@ -289,7 +288,6 @@ img {
     width: 100%;
     background-color: #364037;
     padding: 20px;
-    margin-top: -60px;
     position: relative;
     z-index: 2;
 }
@@ -376,7 +374,7 @@ img {
 }
 
 .blog-card:hover {
-    transform: translateY(-4px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 

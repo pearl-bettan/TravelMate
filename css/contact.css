@@ -562,8 +562,9 @@ body {
         gap: 24px;
     }
 
-    .radio-item {
-        width: calc(50% - 12px);
+    radio-item {
+        width: 48%; 
+        margin-right: 12px; 
     }
     .footer-nav {
         flex-direction: row;
