@@ -1,6 +1,6 @@
 body {
     background-color: #3b423d; /* This is an approximate color based on the image */
-    color: #e0e0e0;
+    color: #f0decb;
     font-family: 'Heebo', sans-serif;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ body {
 }
 
 .nav-list li a {
-    color: #e0e0e0;
+    color: #f0decb;
     text-decoration: none;
     font-size: 1rem;
     white-space: nowrap; /* Prevents text from wrapping */
@@ -56,7 +56,6 @@ body {
 .logo-image {
     width: 60px; /* Adjust as needed */
     height: auto;
-    border: 2px solid #e0e0e0; /* The circular outline */
     border-radius: 50%; /* Makes the border circular */
     padding: 5px;
 }
@@ -65,4 +64,16 @@ body {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 400;
+}
+.footer-link {
+    color: #f0decb;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
 }
