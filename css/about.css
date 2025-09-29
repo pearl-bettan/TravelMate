@@ -247,9 +247,13 @@ img {
     width: 100%;
     margin-bottom: 12px;
 }
-
-.hero-description .brand-highlight {
+.brand-highlight {
+    text-align: right !important;
     color: #f0decb;
+  }
+.hero-description{
+    color: #f0decb;
+    
 }
 
 /* Gallery section */
