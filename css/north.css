@@ -1,0 +1,818 @@
+* {
+    /*margin: 0;*/
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Rubik, Arial, sans-serif;
+    background-color: #ffffff;
+    line-height: 1.6;
+    direction: rtl;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/* Header styles */
+.header {
+    width: 100%;
+    background-color: #364037;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* sticky */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* stays above everything */
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-image {
+    width: 32px;
+    height: 32px;
+}
+
+.logo-text {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 500;
+    color: #f0decb;
+}
+
+.nav-menu {
+    display: none;
+    gap: 40px;
+    align-items: center;
+}
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger menu */
+.hamburger {
+    position: absolute; /* Position it relative to the header */
+    top: 16px; /* Distance from the top */
+    left: 16px; /* Distance from the right */
+    font-size: 24px; /* Adjust size */
+    background: none;
+    border: none;
+    color: #ffffff; /* Adjust color */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+/* Header styles */
+.header-content {
+    display: flex;
+    flex-direction: column; /* Stack logo, navigation, and breadcrumbs vertically */
+    align-items: center;
+    gap: 16px; /* Space between elements */
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    font-size: 14px;
+    font-family: 'Rubik', Arial, sans-serif;
+    color: #364037;
+    text-align: center;
+    margin-top: auto; /* Push breadcrumbs to the bottom */
+}
+
+.breadcrumb-list {
+    display: inline-flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    display: inline;
+}
+
+
+.breadcrumb-link {
+    color: #f0decb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #6b4a38;
+}
+
+.breadcrumb-separator {
+    color: #7d5b47;
+    font-size: 14px;
+}
+
+/* Layout components */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 114px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 136px;
+    padding: 0 16px;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 1466px;
+    background-color: #364037;
+    border-radius: 52px;
+    padding: 52px 32px;
+    gap: 24px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 382px;
+    height: auto;
+    border-radius: 8px;
+}
+.hero-title {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #f0decb;
+    margin-bottom: 46px;
+}
+
+.hero-text {
+    font-size: 24px;
+    font-family: Rubik;
+    font-weight: 900;
+    line-height: 29px;
+    text-align: center;
+    color: #f0decb;
+}
+
+.hero-line {
+    width: 80%;
+    height: 1px;
+    background-color: #ffffff;
+}
+
+.navigation-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 126px 0 190px;
+    margin-bottom: 112px;
+}
+
+.nav-button {
+    background-color: #7d5b47;
+    color: #ffffff;
+    border: none;
+    border-radius: 22px;
+    padding: 6px 34px;
+    font-size: 24px;
+    font-family: Rubik;
+    font-weight: 700;
+    line-height: 29px;
+    text-align: center;
+    box-shadow: 0px 4px 4px #0000003f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-button:hover {
+    background-color: #6b4a38;
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-size: 28px;
+    font-family: Rubik;
+    font-weight: 900;
+    line-height: 34px;
+    text-align: center;
+    color: #7d5b47;
+    margin: 32px 0;
+}
+
+/* Destination cards */
+.destinations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+    max-width: 1498px;
+}
+
+.destination-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #0000005b;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.destination-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+}
+
+.destination-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-title {
+    font-size: 18px;
+    font-family: Rubik;
+    font-weight: 900;
+    line-height: 22px;
+    text-align: right;
+    color: #000000;
+}
+
+.destination-description {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: right;
+    color: #000000;
+}
+
+.destination-details {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: right;
+    color: #000000;
+}
+
+.destination-line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    margin: 16px 0;
+}
+
+/* Accommodation section */
+.accommodation-section {
+    font-family: Rubik;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    max-width: 1466px;
+    align-items: center;
+}
+
+.accommodation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.accommodation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 578px;
+}
+
+.accommodation-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.accommodation-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    font-family: Rubik;
+}
+
+.accommodation-type {
+    font-size: 18px;
+    font-family: Rubik;
+    font-weight: 900;
+    line-height: 36px;
+    text-align: right;
+    color: #000000;
+}
+
+.accommodation-description {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: right;
+    color: #000000;
+}
+
+/* Food section */
+.food-section {
+    display: flex;
+    flex-direction: column;
+    gap: 74px;
+    width: 100%;
+    align-items: center;
+
+}
+
+.food-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    max-width: 1420px;
+    font-family: Rubik;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 578px;
+}
+
+.food-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.food-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    font-family: Rubik;
+}
+
+.food-place {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.food-title {
+    font-size: 18px;
+    font-family: Rubik;
+    font-weight: 900;
+    line-height: 22px;
+    text-align: right;
+    color: #000000;
+}
+
+.food-description {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: right;
+    color: #000000;
+}
+
+/* General footer styles */
+.footer {
+    background-color: #364037;
+    color: #ffffff;
+    padding: 40px 16px; /* Adjust padding for spacing */
+    text-align: center;
+}
+
+.footer-content {
+    font-family: Rubik;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+    gap: 24px; /* Space between elements */
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap; /* Wrap links on smaller screens */
+    justify-content: center; /* Center links */
+    gap: 32px; /* Space between links */
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #f0decb;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Space between logo and text */
+}
+
+.footer-logo img {
+    width: 80px; /* Adjust logo size */
+    height: 80px;
+}
+
+.footer-logo-text {
+    font-size: 20px; /* Adjust text size */
+    font-family: Rubik;
+    font-weight: 700;
+    color: #f0decb;
+}
+
+/* Responsive media queries */
+@media (min-width: 640px) {
+    .header {
+        padding: 20px 24px;
+    }
+    
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 18px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-text {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .navigation-tabs {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 850px;
+    }
+
+    .nav-buttons {
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 126px 0 190px;
+    }
+    
+    .nav-button {
+    width: 100%;
+    font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    .destination-card {
+        flex-direction: row;
+    }
+
+    .destination-image {
+        width: 36%;
+        height: 300px;
+    }
+
+    .destination-content {
+        width: 64%;
+        padding: 32px;
+    }
+
+    .destination-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .destination-description {
+        font-size: 18px;
+        line-height: 40px;
+    }
+
+    .destination-details {
+        font-size: 18px;
+        line-height: 40px;
+    }
+
+    .accommodation-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .accommodation-grid {
+        max-width: 40%;
+    }
+
+    .accommodation-text {
+        width: 60%;
+    }
+
+    .food-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .food-text {
+        width: 48%;
+    }
+
+    .food-grid {
+        width: 50%;
+        max-width: none;
+    }
+    .footer-nav {
+        flex-direction: row;
+        gap: 24px;
+    }
+}
+@media (max-width: 639px) {
+    .nav-buttons {
+        flex-direction: column;
+        gap: 16px;
+        margin: 10px 16px 60px 16px; /* tighter margins for mobile */
+    }
+
+    .nav-button {
+        width: 100%;
+        font-size: 18px;
+    }
+    .nav-menu {
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+        position: absolute;
+        top: 60px;
+        left: 16px;
+        background-color: #364037;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .footer-content {
+        gap: 16px; /* Reduce spacing */
+    }
+
+    .footer-nav {
+        gap: 16px; /* Reduce space between links */
+    }
+
+    .footer-link {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .footer-logo img {
+        width: 60px; /* Smaller logo for mobile */
+        height: 60px;
+    }
+
+    .footer-logo-text {
+        font-size: 16px; /* Adjust text size for mobile */
+    }
+
+}
+@media (min-width: 768px) {
+    .header {
+        padding: 28px 32px;
+    }
+    
+    .logo-image {
+        width: 58px;
+        height: 58px;
+    }
+    
+    .logo-text {
+        font-size: 24px;
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 60px;
+    }
+    
+    .nav-item {
+        font-size: 18px;
+    }
+    .nav-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 16px 126px 0 190px;
+    }
+
+    .nav-button {
+        width: auto;
+        font-size: 20px;
+        padding: 10px 24px;
+    }
+    .content-wrapper {
+        padding: 0 32px;
+    }
+
+    .hero-section {
+        padding: 52px;
+    }
+
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hero-image {
+        width: 28%;
+        max-width: none;
+    }
+    .hero-title {
+        font-size: 34px;
+        text-align: center;
+    }
+
+    .hero-text {
+        font-size: 34px;
+        line-height: 41px;
+    }
+
+    .accommodation-grid img {
+        height: 192px;
+    }
+
+    .food-grid img {
+        height: 192px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-item {
+    font-size: 20px;
+    }
+    
+    .nav-menu {
+        gap: 106px;
+    }
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 24px;
+    }
+
+    .content-wrapper {
+        padding: 0 56px;
+    }
+
+    .destination-image {
+        height: 392px;
+    }
+
+    .destination-title {
+        font-size: 20px;
+    }
+
+    .destination-description {
+        font-size: 20px;
+        line-height: 45px;
+    }
+
+    .destination-details {
+        font-size: 20px;
+        line-height: 45px;
+    }
+
+    .accommodation-type {
+        font-size: 20px;
+        line-height: 45px;
+    }
+
+    .accommodation-description {
+        font-size: 20px;
+        line-height: 45px;
+    }
+
+    .food-title {
+        font-size: 20px;
+    }
+
+    .food-description {
+        font-size: 20px;
+        line-height: 45px;
+    }
+    .footer-link {
+        font-size: 20px;
+    }
+
+    .footer-logo img {
+        width: 108px;
+        height: 108px;
+    }
+
+    .footer-logo-text {
+        font-size: 28px;
+    }
+     .footer-link {
+        font-size: 20px;
+    }
+    .footer-logo img {
+        width: 108px;
+        height: 108px;
+    }
+
+    .footer-logo-text {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .header-content {
+      max-width: 1400px;
+    }
+
+    .main-container {
+        gap: 114px;
+    }
+
+    .content-wrapper {
+        gap: 136px;
+    }
+}
