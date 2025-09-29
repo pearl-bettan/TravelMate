@@ -316,6 +316,7 @@ img {
     color: #000000;
     margin-bottom: 18px;
     font-family: Ariel;
+    margin-top: 40px;
 }
 
 .accommodation-description {
@@ -401,6 +402,7 @@ img {
     font-weight: 400;
     line-height: 1.9;
     color: #000000;
+    margin-top: 40px
 }
 
 /* General footer styles */
