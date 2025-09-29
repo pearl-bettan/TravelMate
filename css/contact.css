@@ -421,7 +421,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 22.5px; 
+    margin-left: 91.5px;
     background: none;
     border: none;
     color: #ffffff;
