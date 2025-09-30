@@ -12,7 +12,7 @@
         <div class="contact-container">
             <h1 class="contact-title">בואו גלו את הטיול המושלם בשבילכם!</h1>
             <p class="contact-description">מלאו את הטופס וגלו את הטיול המושלם בשבילכם</p>
-            <form id="selectionForm" action="result.html" method="GET">
+            <form id="selectionForm" action="index.html" method="GET" onsubmit="return handleFormSubmit(event)">
 
                 <div class="form-group">
                     <label for="full-name">שם מלא*</label>
@@ -89,7 +89,7 @@
                     <textarea id="comments" name="comments" class="form-input" placeholder="פרט כאן את פנייתך..."></textarea>
                 </div>
                 <br/>
-
+            
             <button id="submitButton" type="submit" class="newsletter-button" disabled>
                 שלח
             </button>
@@ -97,6 +97,21 @@
             </form>
         </div>
     </main>
+    <div id="customAlertModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 class="modal-title">החופשה המושלמת בשבילכם</h2>
+        
+        <div id="modalContentArea" class="modal-text-content">
+            </div>
+
+        <div class="modal-footer">
+            <img src="assets/images/index/img_image_21.png" alt="TravelMate Logo" class="modal-logo">
+            <p class="modal-brand">TravelMate</p>
+        </div>
+        
+        <button class="close-button" onclick="closeModal()">X</button>
+    </div>
+</div>
 
 
     <script src="./js/vacation-calc.js"></script>

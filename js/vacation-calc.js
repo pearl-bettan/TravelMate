@@ -1,3 +1,9 @@
+let regionsSelected = null; // משתנה גלובלי לשמירת האזור שנבחר
+let aloneVacationTypesSelected = 0; 
+let partyVacationTypesSelected = 0;
+let coupleVacationTypesSelected = 0;
+let familyVacationTypesSelected = 0;
+
 // מסתיר את כל התמונות ולאחר מכן מציג את התמונה המתאימה לכפתור הבחירה שנבחר./
 function showImage(imageIdToShow) {
     // Step 1: Hide all images by setting display to 'none'.
@@ -59,14 +65,17 @@ function checkButtonState() {
     // בודק את כפתורי הרדיו, איזה מהם מסומן, אם אף אחד מהם לא מסומן אז מבטלים את האפשרות ללחוץ על כפתור השליחה
     let numRadioSelected = 0;
     if (document.getElementById('northRadio').checked) {
-        numRadioSelected = 1;   
+        numRadioSelected = 1;
+        regionsSelected = "north"; // שמירת האזור שנבחר  
     }
     if (document.getElementById('centerRadio').checked) {
         numRadioSelected = 1;   
+        regionsSelected = "center"; // שמירת האזור שנבחר 
     }
 
     if (document.getElementById('southRadio').checked) {
-        numRadioSelected = 1;   
+        numRadioSelected = 1;  
+        regionsSelected = "south"; // שמירת האזור שנבחר  
     }
     
     if (numRadioSelected==0) {
@@ -78,15 +87,19 @@ function checkButtonState() {
     let numCheckboxes = 0;
     if (document.getElementById('aloneCB').checked) {
         numCheckboxes = 1; 
+        aloneVacationTypesSelected = 1;
     }
     if (document.getElementById('familyCB').checked) {
         numCheckboxes = 1;
+        familyVacationTypesSelected = 1;
     }
     if (document.getElementById('coupleCB').checked) {
-        numCheckboxes = 1; 
+        numCheckboxes = 1;
+        coupleVacationTypesSelected = 1;
     }
     if (document.getElementById('partyCB').checked) {
-        numCheckboxes = 1;  
+        numCheckboxes = 1;
+        partyVacationTypesSelected = 1;
     }
     if (numCheckboxes==0) {
         submitButton.disabled = true;
@@ -96,9 +109,130 @@ function checkButtonState() {
     //המשתמש הזין את כל הפרטים הנרדשים, מתאפשרת לחיצה על כפתור ה״שלח״
     submitButton.disabled = false; 
 }
+// =========================================================
+// NEW: MODAL CONTROL FUNCTIONS
+// =========================================================
+
+/**
+ * Closes the custom modal dialog.
+ */
+function closeModal() {
+    document.getElementById('customAlertModal').style.display = 'none';
+}
+
+// =========================================================
+// NEW: HANDLE FORM SUBMISSION AND DISPLAY MODAL
+// =========================================================
+
+/**
+ * Intercepts the form submission, gathers data, displays the custom modal,
+ * and prevents navigation to 'result.html'.
+ * @param {Event} event - The submission event.
+ * @returns {boolean} Always returns false to prevent default form submission.
+ */
+function handleFormSubmit(event) {
+    // Stop the form from navigating
+    event.preventDefault(); 
+
+    // Ensure all required fields are valid before proceeding (safety check)
+    if (document.getElementById('submitButton').disabled) {
+        // This should not happen if the button is enabled correctly, but useful for robustness
+        return false;
+    }
+
+    // --- 1. Gather Required Data ---
+    const fullName = document.getElementById('full-name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    let suggestionHTML = `<p><strong>שלום ${fullName},</strong></p>` +
+    `<p><strong>חופשה המושלמת בשבילך:</strong></p>`;
+    if (regionsSelected === 'north'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ לבד ורגוע באוהל בחוף גינוסר הכנרת!</strong> .</p>
+        `;
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ עם כל המשפחה בקראוון בחוף גולן!</strong> .</p>
+        `;
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ עם כל החבר׳ה בקמפינג בפארק הירדן!</strong> .</p>
+        `;
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית בצפון הארץ במלון כנען ספא שבצפת!</strong> .</p>
+        `;
+        }
+    } 
+    else if (regionsSelected === 'center'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ לבד ורגוע באוהל בחוות הברבור!</strong> .</p>
+        `;
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ עם כל המשפחה בקראוון בחוף הדקלים!</strong> .</p>
+        `;
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ עם כל החבר׳ה בקמפינג בחוף פלמחים!</strong> .</p>
+        `;
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית במרכז הארץ במלון סטאי שבתל אביב!</strong> .</p>
+        `;
+        }   
+    } 
+    else if (regionsSelected === 'south'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ לבד ורגוע באוהל בחוף הדקל!</strong> .</p>
+        `;
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ עם כל המשפחה בקראוון בפארק הצפרות!</strong> .</p>
+        `;
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ עם כל החבר׳ה בקמפינג בחוף המגדלור!</strong> .</p>
+        `;
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית בדרום הארץ במלון בראשית שבמצפה רמון!</strong> .</p>
+        `;
+        }   
+    }
+
+
+    // --- 3. Update the Modal Content and Display It ---
+    const modal = document.getElementById('customAlertModal');
+    const contentArea = document.getElementById('modalContentArea');
+
+    contentArea.innerHTML = suggestionHTML;
+    modal.style.display = 'flex'; // Change from 'none' to 'flex' to display the modal
+     
+    regionsSelected = null; // Reset the global variables after use
+    aloneVacationTypesSelected = 0; 
+    partyVacationTypesSelected = 0;
+    coupleVacationTypesSelected = 0;
+    familyVacationTypesSelected = 0;
+    return false; 
+}
+
+
 //מאזין לשינוי בכפתורים, DOMContentLoaded=מאזין לכפתורים ולא לכל המסמך
 document.addEventListener('DOMContentLoaded', checkButtonState);
-
 
 // מאזין לתיבות הטקסט
 document.getElementById("full-name").addEventListener('input', checkButtonState); 
