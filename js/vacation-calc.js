@@ -1,3 +1,9 @@
+let regionsSelected = null; // משתנה גלובלי לשמירת האזור שנבחר
+let aloneVacationTypesSelected = 0; 
+let partyVacationTypesSelected = 0;
+let coupleVacationTypesSelected = 0;
+let familyVacationTypesSelected = 0;
+
 // מסתיר את כל התמונות ולאחר מכן מציג את התמונה המתאימה לכפתור הבחירה שנבחר./
 function showImage(imageIdToShow) {
     // Step 1: Hide all images by setting display to 'none'.
@@ -59,14 +65,17 @@ function checkButtonState() {
     // בודק את כפתורי הרדיו, איזה מהם מסומן, אם אף אחד מהם לא מסומן אז מבטלים את האפשרות ללחוץ על כפתור השליחה
     let numRadioSelected = 0;
     if (document.getElementById('northRadio').checked) {
-        numRadioSelected = 1;   
+        numRadioSelected = 1;
+        regionsSelected = "north"; // שמירת האזור שנבחר  
     }
     if (document.getElementById('centerRadio').checked) {
         numRadioSelected = 1;   
+        regionsSelected = "center"; // שמירת האזור שנבחר 
     }
 
     if (document.getElementById('southRadio').checked) {
-        numRadioSelected = 1;   
+        numRadioSelected = 1;  
+        regionsSelected = "south"; // שמירת האזור שנבחר  
     }
     
     if (numRadioSelected==0) {
@@ -78,15 +87,19 @@ function checkButtonState() {
     let numCheckboxes = 0;
     if (document.getElementById('aloneCB').checked) {
         numCheckboxes = 1; 
+        aloneVacationTypesSelected = 1;
     }
     if (document.getElementById('familyCB').checked) {
         numCheckboxes = 1;
+        familyVacationTypesSelected = 1;
     }
     if (document.getElementById('coupleCB').checked) {
-        numCheckboxes = 1; 
+        numCheckboxes = 1;
+        coupleVacationTypesSelected = 1;
     }
     if (document.getElementById('partyCB').checked) {
-        numCheckboxes = 1;  
+        numCheckboxes = 1;
+        partyVacationTypesSelected = 1;
     }
     if (numCheckboxes==0) {
         submitButton.disabled = true;
@@ -130,48 +143,75 @@ function handleFormSubmit(event) {
     // --- 1. Gather Required Data ---
     const fullName = document.getElementById('full-name').value;
     const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
 
-    const radioSelectedElement = document.querySelector('input[name="imageSelector"]:checked');
-    const region = radioSelectedElement ? radioSelectedElement.value : 'לא נבחר אזור';
-
-    const checkedBoxes = document.querySelectorAll('input[name="alphaChecker"]:checked');
-    const vacationTypes = Array.from(checkedBoxes).map(cb => cb.value);
-
-    // --- 2. Determine the Suggested Vacation Message (HTML formatted) ---
-    let suggestionHTML = '';
-    
-    // Convert region value to human-readable Hebrew for the output
-    let regionText = '';
-    if (region === 'NorthImage') regionText = 'בצפון הארץ';
-    else if (region === 'CenterImage') regionText = 'במרכז הארץ';
-    else if (region === 'SouthImage') regionText = 'בדרום הארץ';
-    
-    
-    if (vacationTypes.includes("חופשה משפחתית") && region === "CenterImage") {
-        suggestionHTML = `
-            <p><strong>שלום ${fullName},</strong></p>
-            <p><strong>אנו ממליצים:</strong> חופשה של פארקים ומוזיאונים 
-            ידידותיים למשפחות ${regionText}.</p>
+    let suggestionHTML = '<p><strong>שלום ${fullName},</strong></p>' +
+    '<p><strong>חופשה המושלמת בשבילך:</strong></p>';
+    if (regionsSelected === 'north'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ לבד ורגוע באוהל בחוף גינוסר הכנרת!</strong> .</p>
         `;
-    } else if (vacationTypes.includes("חופשה זוגית") && region === "NorthImage") {
-        suggestionHTML = `
-            <p><strong>שלום ${fullName},</strong></p>
-            <p><strong>אנו ממליצים:</strong> צימר רומנטי מבודד בגליל 
-            ${regionText}.</p>
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ עם כל המשפחה בקראוון בחוף גולן!</strong> .</p>
         `;
-    } else if (region === "SouthImage" && (vacationTypes.includes("חופשה עם החבר'ה") || vacationTypes.includes("חופשה לכל"))) {
-        suggestionHTML = `
-            <p><strong>שלום ${fullName},</strong></p>
-            <p><strong>אנו ממליצים:</strong> טיול ג'יפים ולינת שטח 
-            במדבר ${regionText}.</p>
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בצפון הארץ עם כל החבר׳ה בקמפינג בפארק הירדן!</strong> .</p>
         `;
-    } else {
-         suggestionHTML = `
-            <p><strong>שלום ${fullName},</strong></p>
-            <p>אנחנו מעבדים את הנתונים! האימייל שלך (${email}) נקלט. 
-            בהתבסס על ההעדפות שלך (${vacationTypes.join(' ו-')}), 
-            ניצור איתך קשר בהקדם עם ההמלצה המושלמת.</p>
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית בצפון הארץ במלון כנען ספא שבצפת!</strong> .</p>
         `;
+        }
+    } 
+    else if (regionsSelected === 'center'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ לבד ורגוע באוהל בחוות הברבור!</strong> .</p>
+        `;
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ עם כל המשפחה בקראוון בחוף הדקלים!</strong> .</p>
+        `;
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה במרכז הארץ עם כל החבר׳ה בקמפינג בחוף פלמחים!</strong> .</p>
+        `;
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית במרכז הארץ במלון סטאי שבתל אביב!</strong> .</p>
+        `;
+        }   
+    } 
+    else if (regionsSelected === 'south'){
+        if (aloneVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ לבד ורגוע באוהל בחוף הדקל!</strong> .</p>
+        `;
+        }
+        if (familyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ עם כל המשפחה בקראוון בפארק הצפרות!</strong> .</p>
+        `;
+        }
+        if (partyVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה בדרום הארץ עם כל החבר׳ה בקמפינג בחוף המגדלור!</strong> .</p>
+        `;
+        }
+        if (coupleVacationTypesSelected){
+            suggestionHTML += `
+            <p><strong> חופשה זוגית בדרום הארץ במלון בראשית שבמצפה רמון!</strong> .</p>
+        `;
+        }   
     }
 
 
@@ -181,7 +221,12 @@ function handleFormSubmit(event) {
 
     contentArea.innerHTML = suggestionHTML;
     modal.style.display = 'flex'; // Change from 'none' to 'flex' to display the modal
-
+     
+    regionsSelected = null; // Reset the global variables after use
+    aloneVacationTypesSelected = 0; 
+    partyVacationTypesSelected = 0;
+    coupleVacationTypesSelected = 0;
+    familyVacationTypesSelected = 0;
     return false; 
 }
 
