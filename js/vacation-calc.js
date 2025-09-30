@@ -96,6 +96,96 @@ function checkButtonState() {
     //המשתמש הזין את כל הפרטים הנרדשים, מתאפשרת לחיצה על כפתור ה״שלח״
     submitButton.disabled = false; 
 }
+// =========================================================
+// NEW: MODAL CONTROL FUNCTIONS
+// =========================================================
+
+/**
+ * Closes the custom modal dialog.
+ */
+function closeModal() {
+    document.getElementById('customAlertModal').style.display = 'none';
+}
+
+// =========================================================
+// NEW: HANDLE FORM SUBMISSION AND DISPLAY MODAL
+// =========================================================
+
+/**
+ * Intercepts the form submission, gathers data, displays the custom modal,
+ * and prevents navigation to 'result.html'.
+ * @param {Event} event - The submission event.
+ * @returns {boolean} Always returns false to prevent default form submission.
+ */
+function handleFormSubmit(event) {
+    // Stop the form from navigating
+    event.preventDefault(); 
+
+    // Ensure all required fields are valid before proceeding (safety check)
+    if (document.getElementById('submitButton').disabled) {
+        // This should not happen if the button is enabled correctly, but useful for robustness
+        return false;
+    }
+
+    // --- 1. Gather Required Data ---
+    const fullName = document.getElementById('full-name').value;
+    const email = document.getElementById('email').value;
+
+    const radioSelectedElement = document.querySelector('input[name="imageSelector"]:checked');
+    const region = radioSelectedElement ? radioSelectedElement.value : 'לא נבחר אזור';
+
+    const checkedBoxes = document.querySelectorAll('input[name="alphaChecker"]:checked');
+    const vacationTypes = Array.from(checkedBoxes).map(cb => cb.value);
+
+    // --- 2. Determine the Suggested Vacation Message (HTML formatted) ---
+    let suggestionHTML = '';
+    
+    // Convert region value to human-readable Hebrew for the output
+    let regionText = '';
+    if (region === 'NorthImage') regionText = 'בצפון הארץ';
+    else if (region === 'CenterImage') regionText = 'במרכז הארץ';
+    else if (region === 'SouthImage') regionText = 'בדרום הארץ';
+    
+    
+    if (vacationTypes.includes("חופשה משפחתית") && region === "CenterImage") {
+        suggestionHTML = `
+            <p><strong>שלום ${fullName},</strong></p>
+            <p><strong>אנו ממליצים:</strong> חופשה של פארקים ומוזיאונים 
+            ידידותיים למשפחות ${regionText}.</p>
+        `;
+    } else if (vacationTypes.includes("חופשה זוגית") && region === "NorthImage") {
+        suggestionHTML = `
+            <p><strong>שלום ${fullName},</strong></p>
+            <p><strong>אנו ממליצים:</strong> צימר רומנטי מבודד בגליל 
+            ${regionText}.</p>
+        `;
+    } else if (region === "SouthImage" && (vacationTypes.includes("חופשה עם החבר'ה") || vacationTypes.includes("חופשה לכל"))) {
+        suggestionHTML = `
+            <p><strong>שלום ${fullName},</strong></p>
+            <p><strong>אנו ממליצים:</strong> טיול ג'יפים ולינת שטח 
+            במדבר ${regionText}.</p>
+        `;
+    } else {
+         suggestionHTML = `
+            <p><strong>שלום ${fullName},</strong></p>
+            <p>אנחנו מעבדים את הנתונים! האימייל שלך (${email}) נקלט. 
+            בהתבסס על ההעדפות שלך (${vacationTypes.join(' ו-')}), 
+            ניצור איתך קשר בהקדם עם ההמלצה המושלמת.</p>
+        `;
+    }
+
+
+    // --- 3. Update the Modal Content and Display It ---
+    const modal = document.getElementById('customAlertModal');
+    const contentArea = document.getElementById('modalContentArea');
+
+    contentArea.innerHTML = suggestionHTML;
+    modal.style.display = 'flex'; // Change from 'none' to 'flex' to display the modal
+
+    return false; 
+}
+
+
 //מאזין לשינוי בכפתורים, DOMContentLoaded=מאזין לכפתורים ולא לכל המסמך
 document.addEventListener('DOMContentLoaded', checkButtonState);
 
