@@ -1,0 +1,79 @@
+body {
+    background-color: #3b423d; /* This is an approximate color based on the image */
+    color: #f0decb;
+    font-family: 'Heebo', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.site-map-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.site-map-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.site-map-nav {
+    margin-bottom: 40px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between the links */
+    flex-wrap: wrap;
+}
+
+.nav-list li a {
+    color: #f0decb;
+    text-decoration: none;
+    font-size: 1rem;
+    white-space: nowrap; /* Prevents text from wrapping */
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #ffffff;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    width: 60px; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%; /* Makes the border circular */
+    padding: 5px;
+}
+
+.logo-text {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.footer-link {
+    color: #f0decb;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Ariel;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
