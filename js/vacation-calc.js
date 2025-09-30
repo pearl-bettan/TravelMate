@@ -11,17 +11,17 @@ function showImage(imageIdToShow) {
     document.getElementById("centerImage").style.display = 'none';
     document.getElementById("southImage").style.display = 'none';
     
-    // Step 2: Get the specific image element to show.
+    // מציג את התמונה הספציפית
     const selectedImage = document.getElementById(imageIdToShow);
 
-    // Step 3: Check if the element exists and show it (set display to 'block').
+//בדיקה אם קיים האובייקט- אז מציגים אותו
     if (selectedImage) {
         selectedImage.style.display = 'block';
     }
 }
 
-/**
- * * מחליף את השקיפות של התמונה בהתאם לסימון המשתמש.
+/*
+מחליף את השקיפות של התמונה בהתאם לסימון המשתמש.
 אם התמונה בחורה אז = אטומה (שקיפות 1)
 אחרת- התמונה בשקיפות (0.4)
  */
@@ -113,26 +113,16 @@ function checkButtonState() {
     //המשתמש הזין את כל הפרטים הנרדשים, מתאפשרת לחיצה על כפתור ה״שלח״
     submitButton.disabled = false; 
 }
-// =========================================================
-// NEW: MODAL CONTROL FUNCTIONS
-// =========================================================
 
-/**
- * Closes the custom modal dialog.
- */
+/*
+סגירת הפופ-אפ */
 function closeModal() {
     document.getElementById('customAlertModal').style.display = 'none';
 }
 
-// =========================================================
-// NEW: HANDLE FORM SUBMISSION AND DISPLAY MODAL
-// =========================================================
-
-/**
- * Intercepts the form submission, gathers data, displays the custom modal,
- * and prevents navigation to 'result.html'.
- * @param {Event} event - The submission event.
- * @returns {boolean} Always returns false to prevent default form submission.
+/*
+ שולח את הגשת הטופס, אוסף נתונים ומציג את המודל המותאם אישית,
+במידה ונכשל- מפנה לindex.html
  */
 function handleFormSubmit(event) {
     // Stop the form from navigating
@@ -144,11 +134,13 @@ function handleFormSubmit(event) {
         return false;
     }
 
-    // --- 1. Gather Required Data ---
+    // שומר את המידע
     const fullName = document.getElementById('full-name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
-
+    
+// מציג את ההמלצות לפי הנתונים שהמשתמש הזין
+    //סימן ה- $ מציג את תוכן המשתנה ב-html
     let suggestionHTML = `<p><strong>שלום ${fullName},</strong></p>` +
     `<p><strong>חופשה המושלמת בשבילך:</strong></p>`;
     if (regionsSelected === 'north'){
@@ -219,7 +211,7 @@ function handleFormSubmit(event) {
     }
 
 
-    // --- 3. Update the Modal Content and Display It ---
+    //מעדכן את המידע שנשמר ומציג אותו
     const modal = document.getElementById('customAlertModal');
     const contentArea = document.getElementById('modalContentArea');
 
