@@ -12,7 +12,8 @@
         <div class="contact-container">
             <h1 class="contact-title">בואו גלו את הטיול המושלם בשבילכם!</h1>
             <p class="contact-description">מלאו את הטופס וגלו את הטיול המושלם בשבילכם</p>
-            <form action="#" method="post">
+            <form id="selectionForm" action="result.html" method="GET">
+
                 <div class="form-group">
                     <label for="full-name">שם מלא*</label>
                     <input type="text" id="full-name" name="full-name" class="form-input" required>
@@ -27,110 +28,77 @@
                 </div>
                 
                 <p class="contact-description">באיזה אזור בארץ ביקרתם הכי הרבה?</p>
-                <img src="assets/images/north/img_yoav_aziz_ugps2.png" alt=" צפון הארץ" id="north" class="img_north"/>
-                <img src="assets/images/center/img_yoav_aziz_ugps2.png" alt=" מרכז הארץ" id="center" class="img_center"/>
-                <img src="assets/images/south/img_yoav_aziz_ugps2.png" alt=" דרום הארץ" id="south" class="img_south"/>
                 <div class="radio-group" role="radiogroup" aria-labelledby="area-label">
                     
-                    <div class="radio-options">
-                        <label>
-                            <input type="radio" name="area" value="south" checked >
-                            <span>דרום הארץ</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="area" value="center" >
-                            <span>מרכז הארץ</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="area" value="north">
-                            <span>צפון הארץ</span>
-                        </label>
+                    <div class="radio-options" id="radioControls">
+                    
+                    <label>
+                                  
+                        <input type="radio" name="imageSelector" value="northImage" onclick="showImage(this.value); checkButtonState()">
+                        <span>צפון הארץ</span>
+                    </label><br>
+
+                    <label>
+                        <input type="radio" name="imageSelector" value="centerImage" onclick="showImage(this.value); checkButtonState()">
+                        <span>מרכז הארץ</span>
+                    </label><br>
+
+                    <label>
+                        <input type="radio" name="imageSelector" value="southImage" onclick="showImage(this.value); checkButtonState()">
+                        <span>דרום הארץ</span>
+                    </label>
                     </div>
                 </div>
-                <br/>
-                <br/>
-                <div class="form-group checkbox-group">
-                    <p class="contact-description">איזה סוג חופשה אתם מעדיפים?</p>
-                    <div class="checkbox-options">
-                        <label>
-                            <input type="checkbox" name="vacation-type[]" value="family" checked >
-                            <span>חופשה לכל</span>
-                        </label>
-                        <br/>
-                        <label>
-                            <input type="checkbox" name="vacation-type[]" value="relaxing">
-                            <span>חופשה משפחתית</span>
-                        </label>
-                        <br/>
-                        <label>
-                            <input type="checkbox" name="vacation-type[]" value="active">
-                            <span>חופשה זוגית</span>
-                        </label>
-                        <br/>
-                        <label>
-                            <input type="checkbox" name="vacation-type[]" value="with-company">
-                            <span>חופשה עם החבר'ה</span>
-                        </label>
-                        <br/>
-                        <br/>
-                    </div>
+                
+                <div id="imageContainer" class="imageContainer">
+                    <img id="northImage" src="assets/images/north/img_yoav_aziz_ugps2.png" alt="North" class="imageNorth">
+                    <img id="centerImage" src="assets/images/center/img_yoav_aziz_ugps2.png" alt="Center" class="imageCenter">
+                    <img id="southImage" src="assets/images/south/img_yoav_aziz_ugps2.png" alt="South" class="imageSouth">
                 </div>
-                <div class="form-group">
+
+            <hr>
+             <div class="form-group checkbox-group">
+            <h2>בחר את החופשה החלומית</h2>
+             <p class="contact-description">איזה סוג חופשה אתם מעדיפים?</p>
+                <div class="checkbox-options"  id="checkboxControls">
+                <label>
+                    <input type="checkbox" name="alphaChecker" value="חופשה לכל" onclick="toggleOpacity('alphaImg1', this.checked); checkButtonState()">
+                      <span>חופשה לכל</span>
+                </label><br>
+                <label>
+                    <input type="checkbox" name="alphaChecker" value="חופשה משפחתית" onclick="toggleOpacity('alphaImg2', this.checked); checkButtonState()">
+                    <span>חופשה משפחתית</span>
+                </label><br>
+                <label>
+                    <input type="checkbox" name="alphaChecker" value="חופשה זוגית" onclick="toggleOpacity('alphaImg3', this.checked); checkButtonState()">
+                     <span>חופשה זוגית</span>
+                </label><br>
+                <label>
+                    <input type="checkbox" name="alphaChecker" value="חופשה עם החבר'ה" onclick="toggleOpacity('alphaImg4', this.checked); checkButtonState()">
+                    <span>חופשה עם החבר'ה</span>
+                </label>
+                <div class="image-row">
+                <img id="alphaImg1" class="alpha-image" src="assets/images/vacation-calc/1.jpg" alt="רומנטית">
+                <img id="alphaImg2" class="alpha-image" src="assets/images/vacation-calc/2.jpg" alt="הרפתקאה">
+                <img id="alphaImg3" class="alpha-image" src="assets/images/vacation-calc/3.jpg" alt="משפחתית">
+                <img id="alphaImg4" class="alpha-image" src="assets/images/vacation-calc/4.jpg" alt="חופשה אקזוטית">
+            </div>
+            </div>
+            <div class="form-group">
                     <label for="comments">הערות</label>
                     <textarea id="comments" name="comments" class="form-input" placeholder="פרט כאן את פנייתך..."></textarea>
                 </div>
                 <br/>
-                <button type="submit" class="newsletter-button" >שלח</button>
+
+            <button id="submitButton" type="submit" class="newsletter-button" disabled>
+                שלח
+            </button>
+
             </form>
-            <br/>
-            <div class="footer-logo">
-                <img src="assets/images/center/img_image_21.png" alt="TravelMate Logo" class="logo-image">
-                <p class="logo-text">TravelMate</p>
-            </div>
         </div>
     </main>
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            const emailInput = document.getElementById('email');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
-            if (!emailPattern.test(emailInput.value)) {
-                alert('אנא הזן כתובת אימייל תקינה.');
-                event.preventDefault(); 
-            }
-        });
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const radioButtons = document.querySelectorAll('input[name="area"]');
 
-            // פונקציה לעדכון התמונה המוצגת
-            function updateImageDisplay() {
-                const radioButtons = document.querySelectorAll('input[name="area"]');
-                let selectedValue;
 
-                // Loop through the radio buttons to find the checked one
-                radioButtons.forEach(radio => {
-                    if (radio.checked) {
-                        selectedValue = radio.value; // Get the value directly from the radio object
-                    }
-                });
-                document.getElementById('south').style.display = 'none';
-                document.getElementById('center').style.display = 'none';
-                document.getElementById('north').style.display = 'none';
-                
-                // הצג את התמונה הרלוונטית
-                document.getElementById(`${selectedValue}`).style.display = 'block';
-
-            }
-
-        // האזנה לשינויים בבחירת הרדיו
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', updateImageDisplay);
-        });
-
-        // עדכון התמונה במצב התחלתי
-        updateImageDisplay();
-    });
-
-    </script>
+    <script src="./js/vacation-calc.js"></script>
 </body>
 </html>
