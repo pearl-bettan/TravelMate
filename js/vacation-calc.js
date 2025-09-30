@@ -2,10 +2,6 @@
 // RADIO BUTTON IMAGE SELECTOR
 // =========================================================
 
-// Get all radio-controlled image elements that are part of the main group.
-const allImages = document.querySelectorAll(
-    '#northImage, #centerImage, #southImage'
-);
 
 /**
  * Hides all main images and then shows the one corresponding to the selected radio button.
@@ -13,10 +9,10 @@ const allImages = document.querySelectorAll(
  */
 function showImage(imageIdToShow) {
     // Step 1: Hide all images by setting display to 'none'.
-    allImages.forEach(img => {
-        img.style.display = 'none';
-    });
-
+   document.getElementById("northImage").style.display = 'none';
+    document.getElementById("centerImage").style.display = 'none';
+    document.getElementById("southImage").style.display = 'none';
+    
     // Step 2: Get the specific image element to show.
     const selectedImage = document.getElementById(imageIdToShow);
 
@@ -94,5 +90,3 @@ textInputs.forEach(input => {
     input.addEventListener('input', checkButtonState); 
     input.addEventListener('change', checkButtonState);
 });
-
-// The radio buttons and checkboxes already call checkButtonState on 'onclick' in the HTML.
