@@ -85,6 +85,10 @@ function checkButtonState() {
 
     // בודק את כפתורי הצ׳ק בוקס, איזה מהם מסומן, אם אף אחד מהם לא מסומן אז מבטלים את האפשרות ללחוץ על כפתור השליחה
     let numCheckboxes = 0;
+    aloneVacationTypesSelected = 0; 
+    partyVacationTypesSelected = 0;
+    coupleVacationTypesSelected = 0;
+    familyVacationTypesSelected = 0;
     if (document.getElementById('aloneCB').checked) {
         numCheckboxes = 1; 
         aloneVacationTypesSelected = 1;
@@ -221,12 +225,7 @@ function handleFormSubmit(event) {
 
     contentArea.innerHTML = suggestionHTML;
     modal.style.display = 'flex'; // Change from 'none' to 'flex' to display the modal
-     
-    regionsSelected = null; // Reset the global variables after use
-    aloneVacationTypesSelected = 0; 
-    partyVacationTypesSelected = 0;
-    coupleVacationTypesSelected = 0;
-    familyVacationTypesSelected = 0;
+    
     return false; 
 }
 
