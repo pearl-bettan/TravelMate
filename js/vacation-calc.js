@@ -145,8 +145,8 @@ function handleFormSubmit(event) {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
 
-    let suggestionHTML = '<p><strong>שלום ${fullName},</strong></p>' +
-    '<p><strong>חופשה המושלמת בשבילך:</strong></p>';
+    let suggestionHTML = `<p><strong>שלום ${fullName},</strong></p>` +
+    `<p><strong>חופשה המושלמת בשבילך:</strong></p>`;
     if (regionsSelected === 'north'){
         if (aloneVacationTypesSelected){
             suggestionHTML += `
@@ -233,7 +233,6 @@ function handleFormSubmit(event) {
 
 //מאזין לשינוי בכפתורים, DOMContentLoaded=מאזין לכפתורים ולא לכל המסמך
 document.addEventListener('DOMContentLoaded', checkButtonState);
-
 
 // מאזין לתיבות הטקסט
 document.getElementById("full-name").addEventListener('input', checkButtonState); 
