@@ -804,11 +804,10 @@ body {
 /* Text filled by JS */
 .modal-text-content {
     flex-grow: 1; /* Allows content area to take up available space */
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 14px;
     color: #555;
     margin-bottom: 30px;
-    white-space: pre-wrap; /* Preserves line breaks from JS string */
+    
 }
 
 .modal-text-content p {
