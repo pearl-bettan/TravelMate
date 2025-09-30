@@ -34,17 +34,17 @@
                     
                     <label>
                                   
-                        <input type="radio" name="imageSelector" value="northImage" onclick="showImage(this.value); checkButtonState()">
+                        <input type="radio" name="imageSelector" id="northRadio" value="northImage" onclick="showImage(this.value); checkButtonState()">
                         <span>צפון הארץ</span>
                     </label><br>
 
                     <label>
-                        <input type="radio" name="imageSelector" value="centerImage" onclick="showImage(this.value); checkButtonState()">
+                        <input type="radio" name="imageSelector" id="centerRadio" value="centerImage" onclick="showImage(this.value); checkButtonState()">
                         <span>מרכז הארץ</span>
                     </label><br>
 
                     <label>
-                        <input type="radio" name="imageSelector" value="southImage" onclick="showImage(this.value); checkButtonState()">
+                        <input type="radio" name="imageSelector" id="southRadio" value="southImage" onclick="showImage(this.value); checkButtonState()">
                         <span>דרום הארץ</span>
                     </label>
                     </div>
@@ -62,19 +62,19 @@
              <p class="contact-description">איזה סוג חופשה אתם מעדיפים?</p>
                 <div class="checkbox-options"  id="checkboxControls">
                 <label>
-                    <input type="checkbox" name="alphaChecker" value="חופשה לבד" onclick="toggleOpacity('alphaImg1', this.checked); checkButtonState()">
+                    <input type="checkbox" name="alphaChecker" id="aloneCB" value="חופשה לבד" onclick="toggleOpacity('alphaImg1', this.checked); checkButtonState()">
                       <span>חופשה לבד</span>
                 </label><br>
                 <label>
-                    <input type="checkbox" name="alphaChecker" value="חופשה משפחתית" onclick="toggleOpacity('alphaImg2', this.checked); checkButtonState()">
+                    <input type="checkbox" name="alphaChecker" id="familyCB" value="חופשה משפחתית" onclick="toggleOpacity('alphaImg2', this.checked); checkButtonState()">
                     <span>חופשה משפחתית</span>
                 </label><br>
                 <label>
-                    <input type="checkbox" name="alphaChecker" value="חופשה זוגית" onclick="toggleOpacity('alphaImg3', this.checked); checkButtonState()">
+                    <input type="checkbox" name="alphaChecker" id="coupleCB" value="חופשה זוגית" onclick="toggleOpacity('alphaImg3', this.checked); checkButtonState()">
                      <span>חופשה זוגית</span>
                 </label><br>
                 <label>
-                    <input type="checkbox" name="alphaChecker" value="חופשה עם החבר'ה" onclick="toggleOpacity('alphaImg4', this.checked); checkButtonState()">
+                    <input type="checkbox" name="alphaChecker" id="partyCB" value="חופשה עם החבר'ה" onclick="toggleOpacity('alphaImg4', this.checked); checkButtonState()">
                     <span>חופשה עם החבר'ה</span>
                 </label>
                 <div class="image-row">
