@@ -1,12 +1,4 @@
-// =========================================================
-// RADIO BUTTON IMAGE SELECTOR
-// =========================================================
-
-
-/**
- * Hides all main images and then shows the one corresponding to the selected radio button.
- * @param {string} imageIdToShow - The ID of the image element to display (e.g., 'NorthImage').
- */
+// מסתיר את כל התמונות ולאחר מכן מציג את התמונה המתאימה לכפתור הבחירה שנבחר./
 function showImage(imageIdToShow) {
     // Step 1: Hide all images by setting display to 'none'.
    document.getElementById("northImage").style.display = 'none';
@@ -22,71 +14,98 @@ function showImage(imageIdToShow) {
     }
 }
 
-
-// =========================================================
-// CHECKBOX OPACITY TOGGLE
-// =========================================================
-
 /**
- * Toggles the opacity of a specified image element based on checkbox state.
- * @param {string} imageId - The ID of the image element (e.g., 'alphaImg1').
- * @param {boolean} isChecked - True if the checkbox is checked, false otherwise.
+ * * מחליף את השקיפות של התמונה בהתאם לסימון המשתמש.
+אם התמונה בחורה אז = אטומה (שקיפות 1)
+אחרת- התמונה בשקיפות (0.4)
  */
 function toggleOpacity(imageId, isChecked) {
     const imageElement = document.getElementById(imageId);
     if (!imageElement) return;
 
     // Set the opacity based on the checkbox state
-    imageElement.style.opacity = isChecked ? '1.0' : '0.4';
+    if (isChecked) { 
+        imageElement.style.opacity ='1.0';
+    }
+    else {
+        imageElement.style.opacity ='0.4';
+    }
 }
-
-
-// =========================================================
-// BUTTON ENABLING LOGIC (UPDATED TO INCLUDE TEXT FIELDS)
-// =========================================================
-
-/**
- * Checks the state of all required inputs (text, radio, checkbox)
- * to enable/disable the submit button.
+/*
+בודק את מצב כל הקלטים שהוזנו (טקסט, אפשרויות בחירה, תיבת סימון)
+כדי להפעיל/להסתיר את כפתור השליחה.
  */
 function checkButtonState() {
     const submitButton = document.getElementById('submitButton');
-    if (!submitButton) return;
+    if (submitButton == null) return;
 
-    // --- 1. Check Text Inputs (Name, Email, Phone) ---
+    // בדיקה האם המשתמש הזין שם,מייל וטלפון
     const fullName = document.getElementById('full-name');
     const email = document.getElementById('email');
     const phone = document.getElementById('phone');
-
-    // Use checkValidity() to confirm fields are not empty and pass HTML validation (like required, email format, or pattern).
-    // Note: If any element is null (not found), this check will return false, which is safe.
-    const textInputsValid = fullName && fullName.checkValidity() && 
-                           email && email.checkValidity() && 
-                           phone && phone.checkValidity();
-
-    // --- 2. Check Radio Buttons (name="imageSelector") ---
-    const radioSelected = document.querySelector('input[name="imageSelector"]:checked') !== null;
-
-    // --- 3. Check Checkboxes (name="alphaChecker") ---
-    const checkboxSelected = document.querySelector('input[name="alphaChecker"]:checked') !== null;
+   if (fullName == null || fullName.checkValidity()==false) {
+       submitButton.disabled = true;
+       return;
+   }
+   if (email == null || email.checkValidity()==false) {
+        submitButton.disabled = true;
+       return;   
+   }
+    if (phone== null || phone.checkValidity()==false) {
+      submitButton.disabled = true;
+       return;     
+    }
     
-    // --- 4. Determine if the button should be enabled ---
-    // ALL conditions must be true: (Text Fields Valid) AND (Radio Selected) AND (Checkbox Selected)
-    const enableButton = textInputsValid && radioSelected && checkboxSelected;
+    // בודק את כפתורי הרדיו, איזה מהם מסומן, אם אף אחד מהם לא מסומן אז מבטלים את האפשרות ללחוץ על כפתור השליחה
+    let numRadioSelected = 0;
+    if (document.getElementById('northRadio').checked) {
+        numRadioSelected = 1;   
+    }
+    if (document.getElementById('centerRadio').checked) {
+        numRadioSelected = 1;   
+    }
 
-    // --- 5. Update the button's disabled state ---
-    submitButton.disabled = !enableButton;
+    if (document.getElementById('southRadio').checked) {
+        numRadioSelected = 1;   
+    }
+    
+    if (numRadioSelected==0) {
+        submitButton.disabled = true;
+        return;       
+    }
+
+    // בודק את כפתורי הצ׳ק בוקס, איזה מהם מסומן, אם אף אחד מהם לא מסומן אז מבטלים את האפשרות ללחוץ על כפתור השליחה
+    let numCheckboxes = 0;
+    if (document.getElementById('aloneCB').checked) {
+        numCheckboxes = 1; 
+    }
+    if (document.getElementById('familyCB').checked) {
+        numCheckboxes = 1;
+    }
+    if (document.getElementById('coupleCB').checked) {
+        numCheckboxes = 1; 
+    }
+    if (document.getElementById('partyCB').checked) {
+        numCheckboxes = 1;  
+    }
+    if (numCheckboxes==0) {
+        submitButton.disabled = true;
+        return;       
+    }
+        
+    //המשתמש הזין את כל הפרטים הנרדשים, מתאפשרת לחיצה על כפתור ה״שלח״
+    submitButton.disabled = false; 
 }
-
-// Ensure the button state is checked when the page first loads
+//מאזין לשינוי בכפתורים, DOMContentLoaded=מאזין לכפתורים ולא לכל המסמך
 document.addEventListener('DOMContentLoaded', checkButtonState);
 
-// Attach the checkButtonState to input events for real-time validation feedback.
-// This is critical for text fields since they don't have an 'onclick' event.
-const textInputs = document.querySelectorAll('#full-name, #email, #phone');
-textInputs.forEach(input => {
-    // 'input' event captures changes immediately (typing)
-    // 'change' event captures when focus is lost (tabbing away)
-    input.addEventListener('input', checkButtonState); 
-    input.addEventListener('change', checkButtonState);
-});
+
+// מאזין לתיבות הטקסט
+document.getElementById("full-name").addEventListener('input', checkButtonState); 
+document.getElementById("full-name").addEventListener('change', checkButtonState); 
+
+document.getElementById("email").addEventListener('input', checkButtonState); 
+document.getElementById("email").addEventListener('change', checkButtonState); 
+
+document.getElementById("phone").addEventListener('input', checkButtonState); 
+document.getElementById("phone").addEventListener('change', checkButtonState); 
